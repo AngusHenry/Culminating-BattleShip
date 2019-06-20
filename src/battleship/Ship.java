@@ -20,14 +20,25 @@ public class Ship {
     crit = (int) (Math.random() * 6);
     damage = 30000;
 }
-    public int GetFire(){
+    /**
+     * 
+     * @return fire
+     */
+    public int getFire(){
         return fire;
     }
-    public int GetCrit(){
+    /**
+     * 
+     * @return crit
+     */
+    public int getCrit(){
         crit = (int) (Math.random() * 6);
         return crit;
     }
-
+/**
+ * 
+ * @return damage
+ */
     int getDamage() {
        return damage;
     }
