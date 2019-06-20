@@ -21,17 +21,32 @@ public class StarDestroyer extends Ship{
         damage = 15;
         Ship = "StarDestroyer";
     }
-    public int GetDamage(){
+    /**
+     * 
+     * @return damage
+     */
+    public int getDamage(){
         return damage;
     }
-    public String GetShip (){
+    /**
+     * 
+     * @return Ship
+     */
+    public String getShip (){
        return Ship;
        }
-            public int GetHealth (){
+    /**
+     * 
+     * @return health
+     */
+            public int getHealth (){
         return health;
        }
-        public int GetSegments (){
+            /**
+             * 
+             * @return segments
+             */
+        public int getSegments (){
         return segments;
        }
 }
-
