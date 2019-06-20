@@ -26,6 +26,8 @@ public class BattleShip {
         int row;
         int col;
         int i = 15;
+        int time = 10;
+        countdown(time);
         
         // makes the grid for the A.I.
         
@@ -41,8 +43,8 @@ for (row =0; row < Grid.length; row++){
                 else {
                     Grid[col][row] = 0;
                 }
-               System.out.print (col + ": col " + row + ": row " );
-               System.out.println ("30 euqals thing there: " + Grid[col][row]);
+//               System.out.print (col + ": col " + row + ": row " );
+//               System.out.println ("30 euqals thing there: " + Grid[col][row]);
             }
         }
         
@@ -197,11 +199,12 @@ for (row =0; row < Grid.length; row++){
         tracker[col][row] += "~";
       }
     }
-        PrintWriter fileOut = new PrintWriter(new FileWriter(
-      "Grid.txt", true));
                while (game == 1){
 
             if (turn == 1){
+                PrintWriter fileOut = new PrintWriter(new FileWriter(
+      "Grid.txt", true));
+                
             Scanner input = new Scanner(System.in);
             ship = input.nextLine();
                 // Gets the ship that will fire
@@ -333,7 +336,6 @@ for (row =0; row < Grid.length; row++){
     }
     System.out.println(output);
     fileOut.println("Col: " + fireCol + ", Row: " + fireRow);
-             fileOut.close();
                 }
                      else{
 //                     if ("fire".equals(fire)){
@@ -358,7 +360,6 @@ for (row =0; row < Grid.length; row++){
     }
     System.out.println(output);
     fileOut.println("Col: " + fireCol + ", Row: " + fireRow);
-             fileOut.close();
                     }  
                   else {
                       System.out.println("normal Boom");
@@ -381,7 +382,6 @@ for (row =0; row < Grid.length; row++){
     }
     System.out.println(output);
     fileOut.println("Col: " + fireCol + ", Row: " + fireRow);
-             fileOut.close();
                   }    
 //                     }
 
@@ -670,6 +670,7 @@ for (row =0; row < Grid.length; row++){
                     check5 = "Yes! Fire Away!";
                     System.out.println ("Good work, you mader it to where you are supposed to ");
                 }
+            fileOut.close();
              
 //            System.out.println("Fired = 1 || Can Fire = 0");
 //             System.out.println (use1 + " - Dreadnaught");
@@ -709,10 +710,17 @@ for (row =0; row < Grid.length; row++){
     } 
                 System.out.println (i);
             } 
+            if (i == 0){
+                game = 0;
+            }
         }
         System.out.println ("We are done all of the test");
        }
-    
+    /**
+     * 
+     * @param col
+     * @param row 
+     */
   public static void displayGrid(int col,int row) {
 String output = "  ENEMY ALIENS GRID:\n"
         + "0 1 2 3 4 5 6 7 8 9 10 \n";
@@ -732,9 +740,14 @@ String output = "  ENEMY ALIENS GRID:\n"
     System.out.println(output);
     
   }
-  public int Fire(int row){
-return 1;
-}
+  /**
+   * 
+   * @param PlayerGrid
+   * @param rowp
+   * @param column
+   * @param segm
+   * @param miniHealth 
+   */
   public static void placeShip (int PlayerGrid[][], int rowp, int column, int segm, int miniHealth){
       //Boolean noError = true;
          if (PlayerGrid[rowp][column] != 0){
@@ -770,14 +783,22 @@ return 1;
                                }
              }
   }
-
+ /**
+  * 
+  * @param time 
+  */
+public static void countdown(int time){
+    System.out.println (time);
+    time--;
+    if (time == 0){
+        System.out.println("Lets start,");
+    }
+    else{
+        countdown (time);
+    }
+}
  
    
         
-  
-  
-  
-  
-  
 
 }
